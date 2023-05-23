@@ -1,11 +1,29 @@
 <!-- ユーザーの詳細 -->
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
-</div>
+<h1>User info</h1>
+  <div>
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <h3>name <%= @user.name %></h3>
+    <h3>introduction <%= @user.introduction %></h3>
+    <% if @user == current_user %>
+      <p>
+        <%= link_to edit_user_path(@user), class: "btn", method: :get do %>
+        <i class="fas fa-user-cog"></i>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+
+<!--投稿フォーム-->
+<h1>New book</h1>
+<%= form_with model: @book do |f| %>
+  <h4>画像</h4>
+    <%= f.file_field :image, accept: "image/*" %>
+  <h4>title</h4>
+    <%= f.text_field :title %>
+  <h4>body</h4>
+    <%= f.text_area :body %>
+  <%= f.submit '投稿' %>
+<% end %>
 
 <!-- ユーザーの投稿一覧 -->
 

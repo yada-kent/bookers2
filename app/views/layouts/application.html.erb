@@ -6,16 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <p>Bookers</p>
-      <li>
-          <%= link_to '投稿フォーム', new_book_path %>
-      </li>
+      <p><%= link_to "Bookers", root_path %></p>
+      <!--<li>-->
+      <!--    <%= link_to '投稿フォーム', new_book_path %>-->
+      <!--</li>-->
       <li>
           <%= link_to '投稿一覧', books_path %>
       </li>
@@ -28,6 +28,10 @@
       </li>
 
       <% if user_signed_in? %>
+          
+         <li>
+          <%= link_to '投稿一覧', books_path %>
+        </li>
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
