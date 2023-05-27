@@ -1,3 +1,6 @@
+<%= render 'users/userinfo', user: @user %>
+<%= render 'list', book: @book %>
+
 <% @books.each do |book| %>
 <div>
   <%= link_to book_path(book.id) do %>
