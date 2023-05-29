@@ -47,7 +47,7 @@
                 <% end %>
               </li>
             </ul>
-
+            
             <% else %>
               <ul class="navbar-nav ml-auto">
               <li>
@@ -79,16 +79,20 @@
           </div>
         </div>
       </nav>
-
+      
     </header>
-    <div class="flash-notifications">
-      <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: key) %>
-      <% end %>
-    </div>
+    
+    
+    
+    
+      <div class="flash-notifications">
+        <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: key) %>
+        <% end %>
+      </div>
 
     <%= yield %>
-  </div>
+    </div>
   </body>
 
   <footer>
