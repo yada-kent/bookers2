@@ -1,11 +1,40 @@
-<div>
-  <!--<%= image_tag @book.get_image %>-->
-  <p>title：<%= @book.title %></p>
-  <p>option：<%= @book.body %></p>
-  <p>投稿ユーザー画像：<%= image_tag @book.user.get_profile_image(100,100) %></p>
-  <p>ユーザーネーム：<%= @book.user.name %></p>
-  <p>投稿日：<%= @book.created_at.strftime('%Y/%m/%d') %></p>
-   <% if @book.user == current_user %>
-    <%= link_to "削除", book_path(@book), method: :delete %>
-  <% end %>
+<div class="container px-5 px-sm-0" >
+  <div class="row">
+   <div class="col-md-3">
+     <%= render 'users/userinfo', user: @user %>
+     <%= render 'list', book: @books %>
+   </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table table-hover table-inverse">
+        <tbody>
+          <tr>
+            <th>
+              <%= link_to user_path(@book.user.id) do %>
+                <%= image_tag @book.user.get_profile_image(100,100) %></br>
+                <%= @book.user.name %>
+              <% end %>
+           </th>
+            <th>
+              <%= @book.title %>
+            </th>
+            <th>
+              <%= @book.body %>
+            </th>
+            <% if @book.user == current_user %>
+            <th>
+            <%= link_to "Edit", edit_book_path(@book), class:"btn btn-sm btn-success edit_book_83230" %>
+            </th>
+            <th>
+            <%= link_to "Destroy", book_path(@book), method: :delete, class:"btn btn-sm btn-danger destroy_book" %>
+            </th>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
+
+
