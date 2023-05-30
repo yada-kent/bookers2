@@ -1,1 +1,24 @@
-<h1>22222</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>Editing Book</h1>
+  		<%= form_with model: @book do |f| %>
+  		<div class="form-group">
+        <label for="inputTitle">Title</label></br>
+        <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"title", class:"form-control" %></br>
+        <label for="inputOpinion">Opinion</label></br>
+        <%= f.text_area :body, autofocus: true, id:"inputOpinion", placeholder:"opinion", class:"form-control" %></br>
+        <%= f.submit "Update Book", class:"btn btn-success" %></br>
+        <%= link_to "show", book_path(@book.id) %> |
+        <%= link_to "back",  books_path %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
