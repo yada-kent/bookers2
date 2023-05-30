@@ -8,6 +8,9 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     @book.save
     redirect_to user_session_path
+    if @book.save
+      flash[:notice]="You have updated user successfully."
+    end
   end
 
   def index
