@@ -5,18 +5,20 @@
         <table class="table">
             <tbody>
               <tr>
-                <th>name <%= user.name %></th>
+                <th>name</th>
+                <th><%= user.name %></th>
               </tr>
               <tr>
-                <th>introduction <%= user.introduction %></th>
+                <th>introduction</th>
+                <th><%= user.introduction %></th>
               </tr>
             </tbody>
           </table>
-        <% if user == current_user %>
+        
           <p>
             <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block ", method: :get do %>
             <i class="fas fa-user-cog"></i>
             <% end %>
           </p>
-        <% end %>
+    
  

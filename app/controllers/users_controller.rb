@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user = (current_user)
+      render :edit
+    else
+      redirect_to user_path(@user.id)
+    end  
   end
 
   def index
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
   def ensure_user
     @user = User.find(params[:id])
       unless @user == current_user
-        redirect_to users_path
+        redirect_to user_path(current_user)
       end
   end
 
